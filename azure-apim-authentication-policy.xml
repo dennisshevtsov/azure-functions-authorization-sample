@@ -1,0 +1,27 @@
+﻿<policies>
+  <inbound>
+    <base />
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="@((string)context.LastError.Message)" require-scheme="Bearer" require-signed-tokens="true" output-token-variable-name="jwt">
+      <openid-config url="{{oauth-serv-url}}/.well-known/openid-configuration" />
+    </validate-jwt>
+
+    <set-query-parameter name="code" exists-action="override">
+      <value>{{ex-req-dev-api-key}}</value>
+    </set-query-parameter>
+
+    <set-query-parameter name="uid" exists-action="override">
+      <value>@(context.Variables.GetValueOrDefault<Jwt>("jwt").Subject)</value>
+    </set-query-parameter>
+
+    <set-backend-service base-url="{{ex-req-dev-api-key}}" />
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
+</policies>

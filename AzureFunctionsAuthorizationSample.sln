@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsAuthorizationSample.IdentityServer", "AzureFunctionsAuthorizationSample.IdentityServer\AzureFunctionsAuthorizationSample.IdentityServer.csproj", "{7A56BD74-0F4E-46C3-98B5-2B2577D1A926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsAuthorizationSample.FunctionalTesting", "AzureFunctionsAuthorizationSample.FunctionalTesting\AzureFunctionsAuthorizationSample.FunctionalTesting.csproj", "{BBD691DC-0798-41D0-A901-9BBD04F104F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsAuthorizationSample.Api", "AzureFunctionsAuthorizationSample.Api\AzureFunctionsAuthorizationSample.Api.csproj", "{DD254582-C57F-432D-9FCC-2F7FC319E7EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsAuthorizationSample.Authorization", "AzureFunctionsAuthorizationSample.Authorization\AzureFunctionsAuthorizationSample.Authorization.csproj", "{5214CF94-68A2-4267-8084-876BB73B3001}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D5DD6347-929D-4C70-8407-199E81FFEB3B}"
+	ProjectSection(SolutionItems) = preProject
+		azure-apim-authentication-policy.xml = azure-apim-authentication-policy.xml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A56BD74-0F4E-46C3-98B5-2B2577D1A926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A56BD74-0F4E-46C3-98B5-2B2577D1A926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A56BD74-0F4E-46C3-98B5-2B2577D1A926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A56BD74-0F4E-46C3-98B5-2B2577D1A926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD691DC-0798-41D0-A901-9BBD04F104F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD691DC-0798-41D0-A901-9BBD04F104F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD691DC-0798-41D0-A901-9BBD04F104F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD691DC-0798-41D0-A901-9BBD04F104F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD254582-C57F-432D-9FCC-2F7FC319E7EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD254582-C57F-432D-9FCC-2F7FC319E7EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD254582-C57F-432D-9FCC-2F7FC319E7EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD254582-C57F-432D-9FCC-2F7FC319E7EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5214CF94-68A2-4267-8084-876BB73B3001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5214CF94-68A2-4267-8084-876BB73B3001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5214CF94-68A2-4267-8084-876BB73B3001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5214CF94-68A2-4267-8084-876BB73B3001}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8941BA21-5766-495C-B75C-9750E7203236}
+	EndGlobalSection
+EndGlobal
