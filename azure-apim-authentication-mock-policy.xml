@@ -1,22 +1,31 @@
 ﻿<policies>
   <inbound>
     <base />
-    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="@((string)context.LastError.Message)" require-scheme="Bearer" require-signed-tokens="true" output-token-variable-name="jwt">
-      <openid-config url="{{oauth-serv-url}}/.well-known/openid-configuration" />
-    </validate-jwt>
-
     <set-header name="x-ms-client-principal" exists-action="override">
       <value>@{
-var jwt = context.Variables.GetValueOrDefault<Jwt>("jwt");
-var claims = jwt.Claims.Select(x => x.Value.Select(y => new { typ = x.Key, val = y, }))
-                       .SelectMany(x => x)
-                       .ToList();
 var principal = new
 {
   auth_typ = "Bearer",
   name_typ = "name",
   role_typ = "role",
-  claims = claims,
+  claims = new[]
+  {
+    new
+    {
+      typ = "sub",
+      val = "123",
+    },
+    new
+    {
+      typ = "name",
+      val = "Test User",
+    },
+    new
+    {
+      typ = "role",
+      val = "admin",
+    },
+  },
 };
 var json =  JsonConvert.SerializeObject(principal);
 var base64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(json));

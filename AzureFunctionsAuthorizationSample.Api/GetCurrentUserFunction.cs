@@ -15,7 +15,7 @@ namespace AzureFunctionsAuthorizationSample.Api
   {
     [FunctionName(nameof(GetCurrentUserFunction))]
     public IActionResult Run(
-        [HttpTrigger(AuthorizationLevel.Function,
+        [HttpTrigger(AuthorizationLevel.Anonymous,
                      "get",
                      Route = "user/me")] HttpRequest request,
         [Authorize(Permissions = new[] { "read-profile", })] IExecutingContext executingContext)

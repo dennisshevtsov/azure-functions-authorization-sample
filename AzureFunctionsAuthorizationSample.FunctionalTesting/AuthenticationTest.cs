@@ -4,6 +4,7 @@
 
 namespace AzureFunctionsAuthorizationSample.FunctionalTesting
 {
+  using System;
   using System.Net;
   using System.Net.Http;
   using System.Threading.Tasks;
@@ -21,7 +22,11 @@ namespace AzureFunctionsAuthorizationSample.FunctionalTesting
     public void Initialize()
     {
       _identityClient = new HttpClient();
+      _identityClient.BaseAddress = new Uri("http://localhost:50110");
+
       _apiClient = new HttpClient();
+      _apiClient.BaseAddress = new Uri("https://ex-req-dev-authtest.azurewebsites.net/api/");
+      _apiClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "e23f39ce2ffb4db98c0275ac53add250");
     }
 
     [TestCleanup]
@@ -34,7 +39,7 @@ namespace AzureFunctionsAuthorizationSample.FunctionalTesting
     [TestMethod]
     public async Task GetCurrentUser_Should_Return_Ok_If_Token_Is_Provided()
     {
-      var discoveryResponse = await _identityClient.GetDiscoveryDocumentAsync("http://localhost:50110");
+      var discoveryResponse = await _identityClient.GetDiscoveryDocumentAsync();
       Assert.IsFalse(discoveryResponse.IsError, discoveryResponse.Error);
 
       var tokenResponse = await _identityClient.RequestClientCredentialsTokenAsync(
@@ -48,7 +53,7 @@ namespace AzureFunctionsAuthorizationSample.FunctionalTesting
       Assert.IsFalse(tokenResponse.IsError, tokenResponse.Error);
 
       _apiClient.SetBearerToken(tokenResponse.AccessToken);
-      var userResponse = await _apiClient.GetAsync("user/me");
+      var userResponse = await _apiClient.GetAsync("user/me?code=LsfFoIaHK9szM1UpNIA3Q2oeSRZEiuFpPhoGraryRnevG1Gsd88uYg==");
       Assert.AreEqual(HttpStatusCode.OK, userResponse.StatusCode);
     }
 

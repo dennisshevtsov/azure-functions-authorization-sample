@@ -1,12 +1,15 @@
-﻿using Microsoft.Azure.WebJobs.Host.Bindings;
-using Microsoft.Azure.WebJobs.Host.Protocols;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Copyright (c) Dennis Shevtsov. All rights reserved.
+// Licensed under the Apache License, Version 2.0.
+// See License.txt in the project root for license information.
 
 namespace AzureFunctionsAuthorizationSample.Authorization
 {
+  using System;
+  using System.Threading.Tasks;
+
+  using Microsoft.Azure.WebJobs.Host.Bindings;
+  using Microsoft.Azure.WebJobs.Host.Protocols;
+
   public sealed class AuthorizeBinding : IBinding
   {
     public bool FromAttribute => true;
